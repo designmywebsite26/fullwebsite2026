@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bright Lane Web Studio – Websites for schools, lawyers, accountants, barbers and small businesses</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#F2F6F8;--ink:#0E2A47;--mut:#4A6177;--card:#fff;--acc:#F2B230;--teal:#1F7A8C;--line:#D3DEE5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1B2E;--ink:#EAF1F6;--mut:#9DB3C4;--card:#102841;--line:#24425E;--teal:#52B7C9}}
+:root[data-theme="dark"]{--bg:#0A1B2E;--ink:#EAF1F6;--mut:#9DB3C4;--card:#102841;--line:#24425E;--teal:#52B7C9}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.12;margin:0 0 .5em}
+h1{font-size:clamp(2.3rem,6vw,4rem);font-weight:800}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem)}
+h3{font-size:1.2rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+header{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:center;justify-content:space-between;padding:1rem 5vw;border-bottom:1px solid var(--line)}
+.logo{font:800 1.3rem Fraunces,serif;text-decoration:none}
+.logo span{color:var(--acc)}
+nav{display:flex;flex-wrap:wrap;gap:.2rem .9rem;font-size:.95rem}
+nav a{text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent;color:var(--mut)}
+nav a:hover,nav a.on{color:var(--ink);border-color:var(--acc)}
+main{padding:0 5vw 4rem;max-width:1150px;margin:0 auto}
+section{padding:3rem 0 0}
+.lead{font-size:1.15rem;color:var(--mut);max-width:60ch}
+.btn{display:inline-block;background:var(--acc);color:#0E2A47;font-weight:700;padding:.8rem 1.4rem;border-radius:8px;text-decoration:none;border:0;font-size:1rem;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:.5rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.3rem}
+.card p{margin:0;color:var(--mut)}
+.hero{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:center;padding-top:3.5rem}
+.frame{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 18px 40px -20px rgba(14,42,71,.45)}
+.bar{display:flex;gap:.3rem;flex-wrap:wrap;padding:.5rem;background:var(--ink)}
+.bar button{font:inherit;font-size:.8rem;border:0;border-radius:6px;padding:.3rem .6rem;background:transparent;color:#EAF1F6;cursor:pointer}
+.bar button[aria-selected=true]{background:var(--acc);color:#0E2A47;font-weight:700}
+.site{padding:1.6rem;min-height:260px;transition:background .3s}
+.site h3{font-size:1.5rem}
+.site .pill{display:inline-block;padding:.3rem .8rem;border-radius:99px;font-size:.85rem;font-weight:700;margin:.2rem .3rem 0 0}
+.tag{display:inline-block;font-size:.85rem;font-weight:700;color:var(--teal)}
+ul.tick{padding:0;list-style:none}
+ul.tick li{padding:.35rem 0 .35rem 1.7rem;position:relative}
+ul.tick li:before{content:"";position:absolute;left:0;top:.8rem;width:.9rem;height:.5rem;border-left:3px solid var(--acc);border-bottom:3px solid var(--acc);transform:rotate(-45deg)}
+.band{background:var(--ink);color:#EAF1F6;border-radius:14px;padding:2rem;margin-top:3rem}
+.band p{color:#B7C9D8}
+form{display:grid;gap:.9rem;max-width:520px}
+label{font-weight:700;font-size:.95rem}
+input,select,textarea{width:100%;font:inherit;padding:.7rem;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+.plan{display:flex;flex-direction:column;gap:.4rem}
+.plan b{font:800 2rem Fraunces,serif}
+.post small{color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:2rem 5vw;color:var(--mut);font-size:.9rem;text-align:center}
+.msg{background:var(--card);border-left:5px solid var(--teal);padding:1rem;border-radius:8px;margin-top:1rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#/">Bright<span>Lane</span></a>
+  <nav id="nav" aria-label="Main"></nav>
+</header>
+<main id="app" tabindex="-1"></main>
+<footer>© 2026 Bright Lane Web Studio · hello@brightlane.example · +44 20 0000 0000</footer>
+
+<script>
+const pages=[
+["","Home"],["web-design","Web design"],["maintenance","Maintenance"],["schools","Schools"],["professionals","Lawyers & accountants"],["barbers","Barbers"],["smes","Small business"],["blog","News & blog"],["about","About us"],["contact","Contact us"]];
+
+const cta=(t="Get a free quote")=>`<a class="btn" href="#/contact">${t}</a>`;
+const cards=a=>`<div class="grid">${a.map(x=>`<div class="card"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join("")}</div>`;
+const ticks=a=>`<ul class="tick">${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+
+function industry(tag,h,lead,feats,why){
+ return `<section><span class="tag">${tag}</span><h1>${h}</h1><p class="lead">${lead}</p><p>${cta()}</p></section>
+ <section><h2>What your site includes</h2>${cards(feats)}</section>
+ <section class="band"><h2>Why it works</h2>${ticks(why)}<p>${cta("Talk to us about your site")}</p></section>`;
+}
+
+const demos={
+ Schools:{bg:"#E4F1E8",t:"Oakfield Primary School",p:"Term dates, newsletters and a parent portal in one place.",c:["Admissions open","Term dates","Contact the office"],pc:"#1F7A4A"},
+ Lawyers:{bg:"#E9E6F2",t:"Hartley & Cole Solicitors",p:"Clear practice areas and a confidential enquiry form.",c:["Family law","Property","Book a consultation"],pc:"#3C3270"},
+ Accountants:{bg:"#E3EEF7",t:"Mason Chartered Accountants",p:"Tax deadlines, services and secure document upload.",c:["Self-assessment","Payroll","Upload documents"],pc:"#0E2A47"},
+ Barbers:{bg:"#F6E8D9",t:"Sharp Edge Barbers",p:"Prices, gallery and online booking in two taps.",c:["Skin fade £22","Beard trim £12","Book a chair"],pc:"#8A4B12"},
+ "Small business":{bg:"#F9F0CF",t:"Greenway Plumbing & Heating",p:"Services, reviews and a call button that works on every phone.",c:["Emergency call-out","Free quotes","Call now"],pc:"#7A5A00"}
+};
+
+const R={
+"":()=>`<section class="hero"><div><h1>Websites that bring in the people you serve.</h1><p class="lead">We design and look after websites for schools, lawyers, accountants, barbers and small businesses. Clear, fast, easy to update, and built to turn visitors into enquiries.</p><p>${cta()}<a class="btn alt" href="#/web-design">See our services</a></p></div>
+ <div class="frame"><div class="bar" role="tablist" aria-label="Example sites" id="tabs"></div><div class="site" id="demo" role="tabpanel"></div></div></section>
+ <section><h2>Who we build for</h2>${cards([["Schools","Parent-friendly sites with news, calendars and admissions."],["Lawyers & accountants","Trustworthy sites that explain services and capture enquiries."],["Barbers","Price lists, galleries and online booking."],["Small businesses","Simple sites that get the phone ringing."]])}</section>
+ <section class="band"><h2>Our promise</h2>${ticks(["Fixed prices, agreed before we start","Mobile-first and fast on any phone","You can edit your own text and photos","Ongoing care so your site never goes stale"])}<p>${cta("Start your project")}</p></section>`,
+
+"web-design":()=>`<section><span class="tag">Web designing</span><h1>Designed around your visitors.</h1><p class="lead">Every site starts with one question: what does the person arriving need to do? We build around that answer.</p></section>
+ <section>${cards([["Discover","We learn about your business, your audience and your goals."],["Design","You see a clear page layout and style before we build anything."],["Build","Responsive pages that load quickly and work on every device."],["Launch","Domain, hosting, email and search set-up handled for you."]])}</section>
+ <section><h2>Packages</h2><div class="grid">
+ <div class="card plan"><h3>Starter</h3><b>£490</b><p>Up to 5 pages, contact form, mobile design.</p></div>
+ <div class="card plan"><h3>Professional</h3><b>£990</b><p>Up to 10 pages, blog, booking or enquiry system, search set-up.</p></div>
+ <div class="card plan"><h3>Custom</h3><b>Quote</b><p>Larger sites, parent portals, client areas and integrations.</p></div></div><p>${cta()}</p></section>`,
+
+"maintenance":()=>`<section><span class="tag">Website maintenance</span><h1>Your site, looked after.</h1><p class="lead">A website that is not updated loses visitors and trust. We handle the upkeep so you can run your business.</p></section>
+ <section>${cards([["Updates","Text, prices, photos and term dates changed within two working days."],["Security","Backups, software updates and monitoring against attacks."],["Speed & uptime","We watch performance and fix slowdowns before visitors notice."],["Reports","A short monthly summary of visits and enquiries."]])}</section>
+ <section><h2>Care plans</h2><div class="grid">
+ <div class="card plan"><h3>Essential</h3><b>£29/mo</b><p>Backups, security, hosting checks.</p></div>
+ <div class="card plan"><h3>Standard</h3><b>£59/mo</b><p>Essential plus 2 hours of content changes.</p></div>
+ <div class="card plan"><h3>Premium</h3><b>£99/mo</b><p>Standard plus 5 hours and priority support.</p></div></div><p>${cta("Ask about a care plan")}</p></section>`,
+
+"schools":()=>industry("For schools","A school website parents actually use.","Find term dates, letters and contacts in seconds, on any phone.",[["News & newsletters","Post updates in minutes and archive past issues."],["Calendar","Term dates, events and closures that stay current."],["Admissions","Clear steps, forms and open-day booking."],["Safeguarding & policies","Required documents organised and easy to find."]],["Meets accessibility expectations for public-facing sites","Staff can update pages without technical skills","Fast on the older phones many families use"]),
+
+"professionals":()=>industry("For lawyers and accountants","Look as reliable as you are.","Clients choose professionals they trust. Your site should show expertise, explain your services plainly and make the first contact easy.",[["Service pages","Each practice area or service explained in plain language."],["Secure enquiries","Contact and document-upload forms with privacy notices."],["Team profiles","Credentials and photos that build confidence."],["Deadline notices","Tax dates and legal updates that bring repeat visitors."]],["Calm, credible design suited to regulated professions","Clear calls to book a consultation","Content that helps people find you through search"]),
+
+"barbers":()=>industry("For barbers","Fill your chairs.","A site that shows your work, lists your prices and lets customers book without a phone call.",[["Online booking","Customers pick a time and barber; you get the booking."],["Gallery","Fresh cuts and fades shown on a fast-loading page."],["Price list","Services and prices up front, easy to change."],["Map & hours","Directions and opening times at the top of the page."]],["Designed for phones, where most bookings start","Reminders reduce no-shows","Reviews displayed to win new customers"]),
+
+"smes":()=>industry("For small and medium businesses","Be found. Be chosen.","Whether you fix boilers or sell gifts, we build a site that explains what you do and makes it simple to contact you.",[["Clear services","What you do, where, and what it costs."],["Reviews & case studies","Proof from real customers."],["Local search","Set up so nearby customers find you."],["Online shop option","Sell products with secure payment."]],["Fixed price, no hidden extras","You own your domain and content","Grow the site as the business grows"]),
+
+"blog":()=>`<section><span class="tag">News & blog</span><h1>Practical advice for your online presence.</h1></section>
+ <section class="grid">${[
+ ["5 things every school website must have","Parents look for the same few pages first. Make sure they are easy to find.","2 Oct 2026"],
+ ["Do lawyers need a blog?","Short answers to common questions help clients find and trust you.","18 Sep 2026"],
+ ["Why barbers should take bookings online","Fewer missed calls, fewer no-shows, a fuller diary.","4 Sep 2026"],
+ ["The real cost of an unmaintained website","Outdated plugins are the most common way small sites get hacked.","21 Aug 2026"],
+ ["Self-assessment season: a content calendar for accountants","Plan useful posts before the January rush.","7 Aug 2026"],
+ ["Google Business Profile in 15 minutes","A free listing that sends local customers your way.","24 Jul 2026"]
+ ].map(p=>`<article class="card post"><small>${p[2]}</small><h3>${p[0]}</h3><p>${p[1]}</p></article>`).join("")}</section>`,
+
+"about":()=>`<section><span class="tag">About us</span><h1>A small studio that stays in touch.</h1><p class="lead">Bright Lane was started to give schools, professionals and local shops the kind of website that big companies take for granted, without the jargon or surprise bills.</p></section>
+ <section>${cards([["Plain language","We explain every choice and never hide behind technical terms."],["Honest pricing","You know the cost before we begin."],["Long-term care","We stay after launch, so your site keeps working."]])}</section>
+ <section class="band"><h2>Our focus</h2><p>We work with five kinds of client: schools, lawyers, accountants, barbers and small businesses. Knowing your world means fewer questions, faster builds and better results.</p>${cta("Meet us")}</section>`,
+
+"contact":()=>`<section><span class="tag">Contact us</span><h1>Tell us about your project.</h1><p class="lead">We reply within one working day.</p>
+ <form id="f"><div><label for="n">Your name</label><input id="n" required></div>
+ <div><label for="e">Email</label><input id="e" type="email" required></div>
+ <div><label for="t">I run a</label><select id="t"><option>School</option><option>Law firm</option><option>Accountancy practice</option><option>Barber shop</option><option>Small business</option></select></div>
+ <div><label for="m">What do you need?</label><textarea id="m" rows="4"></textarea></div>
+ <button class="btn" type="submit">Send enquiry</button></form><div id="ok" role="status"></div>
+ <p>Or email hello@brightlane.example · +44 20 0000 0000</p></section>`
+};
+
+const nav=document.getElementById("nav"),app=document.getElementById("app");
+nav.innerHTML=pages.map(p=>`<a href="#/${p[0]}" data-r="${p[0]}">${p[1]}</a>`).join("");
+
+function tabs(){
+ const keys=Object.keys(demos),t=document.getElementById("tabs"),d=document.getElementById("demo");
+ if(!t)return;
+ const show=k=>{const x=demos[k];d.style.background=x.bg;d.style.color="#0E2A47";
+  d.innerHTML=`<h3>${x.t}</h3><p>${x.p}</p>${x.c.map(c=>`<span class="pill" style="background:${x.pc};color:#fff">${c}</span>`).join("")}`;
+  [...t.children].forEach(b=>b.setAttribute("aria-selected",b.dataset.k===k))};
+ t.innerHTML=keys.map(k=>`<button role="tab" data-k="${k}">${k}</button>`).join("");
+ t.onclick=e=>{if(e.target.dataset.k)show(e.target.dataset.k)};
+ show(keys[0]);
+}
+
+function route(){
+ const r=(location.hash.replace(/^#\/?/,""))||"";
+ const key=R[r]?r:"";
+ app.innerHTML=R[key]();
+ nav.querySelectorAll("a").forEach(a=>a.classList.toggle("on",a.dataset.r===key));
+ const names=Object.fromEntries(pages);document.title=names[key]+" – Bright Lane Web Studio";
+ window.scrollTo(0,0);tabs();
+ const f=document.getElementById("f");
+ if(f)f.onsubmit=e=>{e.preventDefault();document.getElementById("ok").innerHTML=`<div class="msg">Thanks ${document.getElementById("n").value}. We will reply to ${document.getElementById("e").value} within one working day. (Demo form: not yet connected to email.)</div>`;f.reset()};
+}
+addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
